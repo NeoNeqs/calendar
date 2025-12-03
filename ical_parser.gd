@@ -30,6 +30,7 @@ func _init() -> void:
 func parse() -> int:
 	var file := FileAccess.open("ical.txt", FileAccess.READ)
 	var content := file.get_as_text()
+	file.close()
 	
 	var index := _parse_header(content)
 	
@@ -41,8 +42,10 @@ func parse() -> int:
 	
 	return 0;
 
+
 func _parse_header(content: String) -> int:
 	var index := 0
+	
 	while index < content.length():
 		if content.substr(index, ICAL_BEGIN.length()) == ICAL_BEGIN:
 			index += ICAL_BEGIN.length()
@@ -50,7 +53,7 @@ func _parse_header(content: String) -> int:
 			index += ICAL_VERSION.length()
 			var version_end_index := content.find(' ', index)
 			version = float(content.substr(index, version_end_index - index))
-			index += version_end_index - index
+			index = version_end_index
 		elif content.substr(index, ICAL_PRODID.length()) == ICAL_PRODID:
 			index += ICAL_PRODID.length()
 			
@@ -66,7 +69,7 @@ func _parse_header(content: String) -> int:
 				return -1
 			
 			title = content.substr(index, title_end_index - index)
-			index += title_end_index - index
+			index = title_end_index
 		else: 
 			index += 1
 		
