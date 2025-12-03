@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6k161gbm5c73"]
+[gd_scene load_steps=6 format=3 uid="uid://c6k161gbm5c73"]
 
 [ext_resource type="Script" uid="uid://c53qblkyins07" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://x7vlwbgwhk54" path="res://label.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://bihfauaadxcal" path="res://fixed_label.gd" id="4_1bvp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(0.15294118, 0.18039216, 0.19607843, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,4 +16,223 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Control" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ig7tw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Label" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
+z_index = 1
+layout_mode = 2
+text = "1 grudzień 2025"
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Label2" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
+z_index = 1
+layout_mode = 2
+text = "2 grudzień 2025"
+
+[node name="Button4" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button5" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button6" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button13" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button14" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button15" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button16" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button7" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Label10" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
+z_index = 1
+layout_mode = 2
+text = "3 grudzień 2025"
+
+[node name="Button8" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button9" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button17" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button18" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button19" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button20" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button10" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button11" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Label3" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
+z_index = 7
+layout_mode = 2
+text = "5 grudzień 2025"
+
+[node name="Button12" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button21" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button22" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button23" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button24" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button29" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button25" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button26" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button27" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="Button28" type="Button" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="FixedLabel" type="Label" parent="."]
+z_index = 1000
+y_sort_enabled = true
+layout_mode = 0
+offset_right = 392.0
+offset_bottom = 23.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+text = "1 grudzień 2025"
+horizontal_alignment = 1
+script = ExtResource("4_1bvp3")

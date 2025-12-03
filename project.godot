@@ -12,7 +12,7 @@ config_version=5
 
 config/name="calendar"
 run/main_scene="uid://c6k161gbm5c73"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=30
 config/icon="res://icon.svg"
 
@@ -22,12 +22,16 @@ gdscript/warnings/untyped_declaration=2
 
 [display]
 
-window/size/viewport_width=100
-window/size/viewport_height=100
+window/size/viewport_width=400
+window/size/viewport_height=600
 
 [dotnet]
 
 project/assembly_name="calendar"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
