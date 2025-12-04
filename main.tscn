@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6k161gbm5c73"]
+[gd_scene load_steps=9 format=3 uid="uid://c6k161gbm5c73"]
 
-[ext_resource type="Script" uid="uid://c53qblkyins07" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bthhqsfw2t3af" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="FontFile" uid="uid://ni0yt5d8qix0" path="res://assets/Roboto-Regular.ttf" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bswn5h3q60jha" path="res://event_node.tscn" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://c53qblkyins07" path="res://scroll.gd" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://x7vlwbgwhk54" path="res://label.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://bihfauaadxcal" path="res://fixed_label.gd" id="4_1bvp3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+[sub_resource type="Theme" id="Theme_7mycd"]
+default_font = ExtResource("1_lquwl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+content_margin_left = 10.0
 bg_color = Color(0.15294118, 0.18039216, 0.19607843, 1)
 
 [node name="Control" type="Control"]
@@ -16,6 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_7mycd")
+script = ExtResource("1_ig7tw")
 
 [node name="Control" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -24,7 +31,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ig7tw")
+mouse_filter = 2
+scroll_vertical_custom_step = 10.0
+vertical_scroll_mode = 3
+script = ExtResource("3_7mycd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 2
@@ -32,207 +42,133 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Label" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
-z_index = 1
+[node name="Label1" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
+z_index = 0
 layout_mode = 2
-text = "1 grudzień 2025"
+text = "Wed 22 Oct 2025"
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer2" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button3" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer3" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="PanelContainer4" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
 
 [node name="Label2" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
-z_index = 1
 layout_mode = 2
-text = "2 grudzień 2025"
+text = "Thu 23 Oct 2025"
 
-[node name="Button4" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer5" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button5" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer6" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button6" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer7" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button13" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer8" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button14" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button15" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button16" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button7" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Label10" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
-z_index = 1
-layout_mode = 2
-text = "3 grudzień 2025"
-
-[node name="Button8" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button9" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button17" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button18" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button19" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button20" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button10" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
-
-[node name="Button11" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
 [node name="Label3" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
-z_index = 7
 layout_mode = 2
-text = "5 grudzień 2025"
+text = "Mon 27 Oct 2025"
 
-[node name="Button12" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer9" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button21" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer10" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button22" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer11" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button23" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer12" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button24" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer13" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button29" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer14" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button25" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer15" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button26" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="Label4" parent="Control/VBoxContainer" instance=ExtResource("3_h2yge")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+text = "Tue 28 Oct 2025"
 
-[node name="Button27" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer16" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 
-[node name="Button28" type="Button" parent="Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+[node name="PanelContainer17" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
 layout_mode = 2
-mouse_filter = 1
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+
+[node name="PanelContainer18" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer19" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer20" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer21" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer22" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer23" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer24" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer25" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer26" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer27" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer28" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer29" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer30" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer31" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer32" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer33" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+
+[node name="PanelContainer34" parent="Control/VBoxContainer" instance=ExtResource("3_1bvp3")]
+layout_mode = 2
 
 [node name="FixedLabel" type="Label" parent="."]
-z_index = 1000
 y_sort_enabled = true
-layout_mode = 0
-offset_right = 392.0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 23.0
+grow_horizontal = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
-text = "1 grudzień 2025"
-horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_1bvp3")

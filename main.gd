@@ -1,47 +1,36 @@
-extends ScrollContainer
-class_name Scroller
+extends Control
 
-var labels: Array[Label]
+@onready var control: Scroller = $Control
 
-var active_index := 0:
-	get(): return active_index
-	set(v): 
-		active_index = v;
-		for i: int in labels.size():
-			labels[i].set_process(i == active_index or i == active_index + 1)
+var scroll: int = 0
+
+var t: Tween
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			if event.pressed:
+				scroll += 1
+				set_process(true)
 			
-var scroll_direction: int = 0
-var _prev_scroll_vertical: int = 0
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			if event.pressed:
+				scroll += -1
+				set_process(true)
+		
 
-func _ready() -> void:
-	set_process(false)
-	scroll_started.connect(func() -> void: set_process(true))
-	scroll_ended.connect(func() -> void: set_process(false))
-	var index := 0
-	
-	for child: Node in get_child(0).get_children():
-		if child is BetterLabel:
-			child.index = index
-			index += 1
-			labels.append(child)
+func _process(delta: float) -> void:
+	if not scroll == 0:
+		if not t or not t.is_valid():
+			t = create_tween()
+			t.tween_property(control, "scroll_vertical", control.scroll_vertical - 400 * scroll, 0.4)
+			t.tween_callback(_reset)
+		
+		if t.is_running():
+			t.stop()
+			t.tween_property(control, "scroll_vertical", control.scroll_vertical - 400 * scroll, 0.4)
+			t.play()
+		set_process(false)
 
-
-func _process(_delta: float) -> void:
-	scroll_direction = scroll_vertical - _prev_scroll_vertical
-	_prev_scroll_vertical = scroll_vertical
-	
-
-#func _ready() -> void:
-	#var a := Time.get_ticks_usec()
-	##var parser  := ICalParser.new()
-	##var result := parser.parse()
-	#var parser  := ICalParser2.new()
-	#var result := parser.parse("res://ical.txt")
-	#if result.is_error():
-		#print(result.get_error())
-		#return
-	#var calendar := result.get_result()
-	#var b := Time.get_ticks_usec()
-	#print(b-a)
-	##print(parser.events.size())
-	##print(parser.events[10].description)
+func _reset() -> void:
+	scroll = 0

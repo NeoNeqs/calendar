@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://c7ih40oi3ci5y" path="res://label.gd" id="1_y38sv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+content_margin_left = 10.0
 bg_color = Color(0.15294118, 0.18039216, 0.19607843, 1)
 
 [node name="Label" type="Label"]
+z_index = 1
+custom_minimum_size = Vector2(0, 40)
+offset_right = 298.0
+offset_bottom = 23.0
 mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_0xm2m")
-horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("1_y38sv")
