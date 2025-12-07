@@ -28,6 +28,7 @@ var is_emulate_touch_on: bool
 
 func _ready() -> void:
 	is_emulate_touch_on = ProjectSettings.get_setting("input_devices/pointing/emulate_touch_from_mouse")
+	
 	if OS.has_feature("mobile") or is_emulate_touch_on:
 		if OS.has_feature("editor") and not OS.has_feature("mobile") and is_emulate_touch_on:
 			print_rich("[color=yellow]Warning: emulate_touch is ON[/color]")
@@ -57,9 +58,7 @@ func _handle_scroll_events(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	var weight: float = 1.0 - exp(-SCROLL_SMOOTHING_EXP * delta)
 
-	scroller.scroll_vertical = int(
-		lerpf(scroller.scroll_vertical, scroller.scroll_vertical + scroll, weight)
-	)
+	scroller.scroll_vertical += int(scroll * weight)
 
 	var damping := SCROLL_DAMPING_BASE + SCROLL_DAMPING_MULTIPLIER * (
 		1.0 - clampf(absf(scroll) / SCROLL_SPEED_NORMALIZER, 0.0, 1.0)
