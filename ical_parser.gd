@@ -22,11 +22,6 @@ var version: float = INF
 var title: String = ""
 var events: Array[Event] = []
 
-
-func _init() -> void:
-	pass
-
-
 func parse() -> int:
 	var file := FileAccess.open("ical.txt", FileAccess.READ)
 	var content := file.get_as_text()
@@ -75,7 +70,6 @@ func _parse_header(content: String) -> int:
 		
 		if not is_inf(version) and not title.is_empty():
 			break
-			
 			
 	return index
 
@@ -155,17 +149,39 @@ class Event:
 	var location: String
 
 class Date:
+	const M := [
+		"Jan", "Feb", "Mar", 
+		"Apr", "May", "Jun", 
+		"Jul", "Aug", "Sep", 
+		"Oct", "Nov", "Dec"
+	]
+	
+	const W := [
+		"Mon", "Tue", "Wed", 
+		"Thu", "Fri", "Sat", "Sun"
+	]
+	
 	var timezone: String
 	var unix_timestamp: int
-	
+	var year: int 
+	var month: int 
+	var day: int 
+	var weekday: int 
+	var hour: int 
+	var minute: int 
+	var second: int 
+
 	static func from(date_string: String) -> Date:
 		var d := Date.new()
 		d.timezone = d.__get_time_zone_from_date_string(date_string)
 		d.unix_timestamp = d.__get_unix_time_from_date_string(date_string)
 		return d
+	
+	func weekname() -> String:
+		return W[weekday - 1]
 
-	func _to_string() -> String:
-		return "%s:%s" % [timezone, Time.get_datetime_string_from_unix_time(unix_timestamp, true)]
+	func monthname() -> String:
+		return M[month - 1]
 	
 	# TZID=Europe/Warsaw;VALUE=DATE-TIME:20251001T094500
 	func __get_time_zone_from_date_string(date_string: String) -> String:
@@ -173,8 +189,7 @@ class Date:
 		if date_string[-1] == 'Z':
 			return "UTC"
 		
-		var semicolon_index := date_string.find(';')
-		
+		var semicolon_index := date_string.find(';', ICAL_EVENT_TZID.length())
 		
 		return date_string.substr(offset, semicolon_index - offset)
 	
@@ -203,5 +218,16 @@ class Date:
 		p[17] = date_string[offset + 13]
 		p[18] = date_string[offset + 14]
 		
-		return Time.get_unix_time_from_datetime_string("".join(p))
+		var unix := Time.get_unix_time_from_datetime_string("".join(p))
+		var datetime := Time.get_datetime_dict_from_unix_time(unix)
+		
+		year = datetime["year"]
+		month = datetime["month"]
+		day = datetime["day"]
+		weekday = datetime["weekday"]
+		hour = datetime["hour"]
+		minute = datetime["minute"]
+		second = datetime["second"]
+		
+		return unix
 		
