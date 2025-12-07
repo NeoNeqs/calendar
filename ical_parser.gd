@@ -95,7 +95,6 @@ func _parse_events(content: String, index: int) -> int:
 				return -1
 			
 			event.dt_start = Date.from(content.substr(index, dtstart_end_index - index))
-			#event.dt_start = content.substr(index, dtstart_end_index - index)
 			
 			index = dtstart_end_index
 		elif content.substr(index, ICAL_EVENT_DTEND.length()) == ICAL_EVENT_DTEND:
@@ -104,7 +103,6 @@ func _parse_events(content: String, index: int) -> int:
 			if dtend_end_index == -1:
 				return -1
 			
-			#event.dt_end = content.substr(index, dtend_end_index - index)
 			event.dt_end = Date.from(content.substr(index, dtend_end_index - index))
 			index = dtend_end_index
 		elif content.substr(index, ICAL_EVENT_DTSTAMP.length()) == ICAL_EVENT_DTSTAMP:
@@ -113,7 +111,6 @@ func _parse_events(content: String, index: int) -> int:
 			if dtstamp_end_index == -1:
 				return -1
 			
-			#event.dt_stamp = content.substr(index, dtstamp_end_index - index)
 			event.dt_stamp = Date.from(content.substr(index, dtstamp_end_index - index))
 			index = dtstamp_end_index
 		elif content.substr(index, ICAL_EVENT_DESCRIPTION.length()) == ICAL_EVENT_DESCRIPTION:

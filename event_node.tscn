@@ -47,12 +47,12 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
+[node name="StartTime" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
 layout_mode = 2
 text = "18:30"
 label_settings = SubResource("LabelSettings_ix5bg")
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
+[node name="EndTime" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
 layout_mode = 2
 text = "20:00"
 label_settings = SubResource("LabelSettings_hf7a8")
@@ -61,7 +61,7 @@ label_settings = SubResource("LabelSettings_hf7a8")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
 custom_minimum_size = Vector2(50, 1)
 layout_mode = 2
 size_flags_vertical = 1
@@ -69,7 +69,7 @@ text = "Cyfrowe systemy sterowania procesami produkcyjnymi"
 label_settings = SubResource("LabelSettings_a2h7q")
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
+[node name="Info" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 0
@@ -83,7 +83,7 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Col3"]
+[node name="Rel" type="Label" parent="MarginContainer/HBoxContainer/Col3"]
 layout_mode = 2
 text = "STARTS IN
 10 DAYS"

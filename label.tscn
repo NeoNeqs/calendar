@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://x7vlwbgwhk54"]
+[gd_scene load_steps=4 format=3 uid="uid://x7vlwbgwhk54"]
 
 [ext_resource type="Script" uid="uid://c7ih40oi3ci5y" path="res://label.gd" id="1_y38sv"]
 
@@ -6,6 +6,8 @@
 content_margin_left = 15.0
 content_margin_right = 15.0
 bg_color = Color(0.15294118, 0.18039216, 0.19607843, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y38sv"]
 
 [node name="Label" type="Label"]
 z_index = 1
@@ -15,5 +17,6 @@ offset_bottom = 23.0
 focus_mode = 2
 mouse_filter = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_0xm2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y38sv")
 vertical_alignment = 1
 script = ExtResource("1_y38sv")

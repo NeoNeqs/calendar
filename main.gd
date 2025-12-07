@@ -26,28 +26,30 @@ func _ready() -> void:
 		
 		if not event_date == current_date:
 			var label := LABEL.instantiate()
+			
 			label.text = "%s %02d %s %04d" % [
 				event.dt_start.weekname(), event.dt_start.day, 
 				event.dt_start.monthname(), event.dt_start.year
 			]
-			
 			current_date = event_date
 			label.index = label_index
 			label_index += 1
 			smoth_scroll.labels.append(label)
 			v_box_container.add_child(label)
-			
+		
 			if not found:
 				label_to_scroll_to = label
-				
+			
 		var is_old := current_timestamp >= event.dt_start.unix_timestamp
 		if not is_old and not found:
 			found = true
 		
 		var node := EVENT_NODE.instantiate()
-		node.set_data(event, is_old)
 		v_box_container.add_child(node)
+		node.set_data(event, is_old)
+		
 	fixed_label.text = smoth_scroll.labels[0].text
+
 	for i: int in 5:
 		await get_tree().physics_frame
 
