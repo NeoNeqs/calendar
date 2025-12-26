@@ -78,7 +78,7 @@ func apply_theme():
 	if has_theme_color("bright_white", "GDTerm"):   $GDTerm.bright_white   = get_theme_color("bright_white", "GDTerm")
 
 func _gui_input(e : InputEvent):
-	var me := e as InputEventMouseButton
+	var me = e as InputEventMouseButton
 	if me != null:
 		if me.is_pressed():
 			if me.button_index == MOUSE_BUTTON_RIGHT:

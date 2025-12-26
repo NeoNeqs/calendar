@@ -13,11 +13,8 @@ config_version=5
 config/name="calendar"
 run/main_scene="uid://c6k161gbm5c73"
 config/features=PackedStringArray("4.5", "Mobile")
+run/max_fps=120
 config/icon="res://icon.svg"
-
-[autoload]
-
-Task="*res://task.gd"
 
 [debug]
 
@@ -25,8 +22,13 @@ gdscript/warnings/untyped_declaration=2
 
 [display]
 
-window/size/viewport_width=600
-window/size/viewport_height=900
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/mode=3
+window/frame_pacing/android/enable_frame_pacing=false
+window/frame_pacing/android/swappy_mode=1
+window/handheld/orientation=1
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -36,6 +38,10 @@ project/assembly_name="calendar"
 
 enabled=PackedStringArray("res://addons/gdterm/plugin.cfg")
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
-renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

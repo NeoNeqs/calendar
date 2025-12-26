@@ -5,6 +5,7 @@ const SCROLL_IMPULSE: float = 600.0
 
 ## Maximum allowed accumulated scroll velocity pointing up
 const SCROLL_VELOCITY_MIN: float = -1200.0
+
 ## Maximum allowed accumulated scroll velocity pointing down
 const SCROLL_VELOCITY_MAX: float = 1200.0
 
@@ -20,7 +21,7 @@ const SCROLL_DAMPING_MULTIPLIER: float = 30.0
 # Normalization factor for scroll speed (max speed)
 const SCROLL_SPEED_NORMALIZER: float = 600.0
 
-@onready var scroller: Scroller = $SmothScroll
+@onready var event_container: EventContainer = $Container
 
 var scroll: float = 0.0
 
@@ -33,10 +34,10 @@ func _ready() -> void:
 		if OS.has_feature("editor") and not OS.has_feature("mobile") and is_emulate_touch_on:
 			print_rich("[color=yellow]Warning: emulate_touch is ON[/color]")
 		set_process(false)
-		scroller.mouse_filter = Control.MOUSE_FILTER_PASS
+		event_container.mouse_filter = Control.MOUSE_FILTER_PASS
 	else:
 		gui_input.connect(_handle_scroll_events)
-		scroller.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		event_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		set_process(true)
 
 func _handle_scroll_events(event: InputEvent) -> void:
@@ -58,7 +59,7 @@ func _handle_scroll_events(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	var weight: float = 1.0 - exp(-SCROLL_SMOOTHING_EXP * delta)
 
-	scroller.scroll_vertical += int(scroll * weight)
+	event_container.scroll_vertical += int(scroll * weight)
 
 	var damping := SCROLL_DAMPING_BASE + SCROLL_DAMPING_MULTIPLIER * (
 		1.0 - clampf(absf(scroll) / SCROLL_SPEED_NORMALIZER, 0.0, 1.0)

@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://bswn5h3q60jha"]
+
+[ext_resource type="Script" uid="uid://db0c746o3hhd1" path="res://scenes/event_node.gd" id="1_jst18"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jst18"]
+bg_color = Color(0.09019608, 0.105882354, 0.11764706, 1)
+border_color = Color(1, 0.22658296, 0.22658296, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ix5bg"]
+resource_local_to_scene = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_hf7a8"]
+resource_local_to_scene = true
+font_color = Color(0.7882353, 0.7882353, 0.7882353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2h7q"]
+resource_local_to_scene = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_jst18"]
+resource_local_to_scene = true
+font_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kmw16"]
+resource_local_to_scene = true
+
+[node name="EventNode" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -748.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_jst18")
+script = ExtResource("1_jst18")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Col1" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="StartTime" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
+layout_mode = 2
+text = "18:30"
+label_settings = SubResource("LabelSettings_ix5bg")
+
+[node name="EndTime" type="Label" parent="MarginContainer/HBoxContainer/Col1"]
+layout_mode = 2
+text = "20:00"
+label_settings = SubResource("LabelSettings_hf7a8")
+
+[node name="Col2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
+custom_minimum_size = Vector2(50, 1)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Cyfrowe systemy sterowania procesami produkcyjnymi"
+label_settings = SubResource("LabelSettings_a2h7q")
+autowrap_mode = 2
+
+[node name="Info" type="Label" parent="MarginContainer/HBoxContainer/Col2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "dr inż. Jacek Czerniak
+ćwiczenia
+Paw. A 301a lab.Win10, Office21"
+label_settings = SubResource("LabelSettings_jst18")
+autowrap_mode = 2
+
+[node name="Col3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Rel" type="Label" parent="MarginContainer/HBoxContainer/Col3"]
+layout_mode = 2
+text = "STARTS IN
+10 DAYS"
+label_settings = SubResource("LabelSettings_kmw16")
+horizontal_alignment = 2
